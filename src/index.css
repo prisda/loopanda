@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-color: #3B82F6;
+  --brand-text-color: #FFFFFF;
+  --brand-light: rgba(59, 130, 246, 0.1);
+  --background-color: #F3F4F6;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--background-color);
+  }
+
+  /* Global input styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="url"],
+  input[type="search"],
+  textarea,
+  select {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 shadow-sm;
+    @apply focus:ring-2 focus:ring-opacity-50 focus:border-transparent;
+    border-color: #E5E7EB;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    --tw-ring-color: var(--brand-color);
+    --tw-border-opacity: 1;
+    border-color: var(--brand-color);
+  }
+}
+
+@layer components {
+  .input-primary {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 shadow-sm;
+    @apply focus:ring-2 focus:ring-opacity-50 focus:border-transparent;
+    @apply focus:ring-brand focus:border-brand;
+  }
+
+  .btn-primary {
+    background-color: var(--brand-color);
+    color: var(--brand-text-color);
+    @apply inline-flex items-center px-6 py-3 rounded-lg hover:opacity-90 transition-all disabled:opacity-50 shadow-sm;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-100;
+  }
+
+  .card-header {
+    @apply flex items-center justify-between p-6 border-b border-gray-100;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  /* Vote button styles */
+  .vote-box {
+    @apply flex flex-col items-center justify-center rounded-lg transition-all;
+  }
+
+  .vote-box.active {
+    background-color: var(--brand-light);
+    color: var(--brand-color);
+  }
+
+  .vote-box:hover:not(.active) {
+    @apply bg-gray-100;
+  }
+
+  /* Filter section */
+  .filter-section {
+    @apply bg-white rounded-lg shadow-sm p-6 mb-6;
+  }
+
+  /* Category tags */
+  .category-tag {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium transition-colors;
+  }
+
+  .category-tag-ui {
+    @apply bg-purple-100 text-purple-800;
+  }
+
+  .category-tag-feature {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .category-tag-bug {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .category-tag-enhancement {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .category-tag-documentation {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .category-tag-other {
+    @apply bg-gray-100 text-gray-800;
+  }
+
+  /* User thumbnail */
+  .user-thumbnail {
+    @apply flex items-center gap-3;
+  }
+
+  .user-thumbnail img {
+    @apply w-8 h-8 rounded-full object-cover;
+  }
+
+  .user-thumbnail .placeholder {
+    @apply w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 text-sm font-medium;
+  }
+
+  .user-thumbnail .info {
+    @apply flex flex-col;
+  }
+
+  .user-thumbnail .name {
+    @apply text-sm font-medium text-gray-900 hover:text-brand;
+  }
+
+  .user-thumbnail .meta {
+    @apply text-xs text-gray-500;
+  }
+}
